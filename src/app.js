@@ -9,6 +9,10 @@ const router = express.Router();
 
 //Conectando ao banco
 mongoose.connect('mongodb://admin:admin#123@ds018498.mlab.com:18498/db-barbershop');
+
+// Carregar os Models
+const Service = require('./models/service');
+
 // Carregar as Rotas
 const indexRoute = require('./routes/index-route');
 const serviceRoute = require('./routes/service-route');
