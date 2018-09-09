@@ -2,22 +2,11 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 
+const { User } = require('./models');
 
 const app = express();
 const router = express.Router();
-
-//Conectando ao banco
-
-mongoose.connect('mongodb://admin.documents.azure.com:10255/db-barbershop?ssl=true', {
-    auth: {
-        user: 'admin',
-        password: 'admin#123'
-    }
-})
-    .then(() => console.log('connection successful'))
-    .catch((err) => console.error(err));
 
 // Carregar os Models
 const Service = require('./models/service');
@@ -28,6 +17,13 @@ const serviceRoute = require('./routes/service-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+User.create({ name: 'Claudio',username : 'cesar', email: 'claudio@rocketseat.com.br', dateOfBirth: '1993-09-25 21:42:10.946 +00:00', password: '123456' });
+
+app.post('/register', async (req, res) => {
+    const user = await User.create(req.body);
+    res.json(user);
+});
 
 
 app.use('/', indexRoute);
