@@ -2,7 +2,7 @@
 
 module.exports = {
     up: (queryInterface, DataTypes) => {
-        queryInterface.createTable('UserContact', {
+        queryInterface.createTable('Schedule', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -17,6 +17,18 @@ module.exports = {
                 },
                 onDelete: 'set null'
             },
+            serviceId: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Services',
+                    key: 'id'
+                },
+                onDelete: 'set null'
+            },
+            timestamp: {
+                allowNull: false,
+                type: DataTypes.DATE
+            },
             createdAt: {
                 allowNull: false,
                 type: DataTypes.DATE,
@@ -29,6 +41,6 @@ module.exports = {
     },
 
     down: (queryInterface) => {
-        queryInterface.dropTable('UserContact');
+        queryInterface.dropTable('Schedule');
     }
 };
