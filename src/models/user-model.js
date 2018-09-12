@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
                 }
             }
         },
-
+        
         email: {
             notNull: true,
             type: DataTypes.STRING,
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
                 }
             }
         },
-
+        
         dateOfBirth: {
             notNull: false,
             type: DataTypes.DATE,
