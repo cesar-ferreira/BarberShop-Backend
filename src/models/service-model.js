@@ -4,13 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     const Service = sequelize.define('Service', {
         name: {
             notNull: true,
-            type: DataTypes.STRING,
-            validate: {
-                len: {
-                    args: 3,
-                    msg: "Name must be at least 3 characters in length"
-                }
-            }
+            type: DataTypes.ENUM,
+            values: ['SERVICE1', 'SERVICE2', 'SERVICE3', 'SERVICE4', 'SERVICE5', 'SERVICE6', 'SERVICE7', 'SERVICE8']
         },
 
         description: {

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,6 +12,7 @@ const router = express.Router();
 
 // Carregar as Rotas
 const indexRoute = require('./routes/index-route');
+const userRoute = require('./services/user/user-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -25,6 +26,7 @@ app.post('/register', async (req, res) => {
 
 
 app.use('/', indexRoute);
+app.use('/user', userRoute);
 app.use('/swagger-ui.html', express.static(__dirname + '/public/api-docs'));
 
 require('./public/swagger')(app);
