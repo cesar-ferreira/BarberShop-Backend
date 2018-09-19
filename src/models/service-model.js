@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('User', {
+    const Service = sequelize.define('Service', {
         name: {
             notNull: true,
             type: DataTypes.STRING,
@@ -12,35 +12,47 @@ module.exports = (sequelize, DataTypes) => {
                 }
             }
         },
-        
-        username: {
+
+        description: {
             notNull: true,
             type: DataTypes.STRING,
             validate: {
                 len: {
                     args: 3,
-                    msg: "Username must be at least 3 characters in length"
+                    msg: "Description must be at least 3 characters in length"
                 }
             }
         },
-        
-        email: {
+
+        price: {
             notNull: true,
-            type: DataTypes.STRING,
+            type: DataTypes.FLOAT,
             validate: {
-                len: {
-                    args: [6, 128],
-                    msg: "Email address must be between 6 and 128 characters in length"
+                min: {
+                    args: 0
                 },
-                isEmail: {
-                    msg: "Email address must be valid"
+                isFloat: {
+                    msg: "Price must be valid"
                 }
             }
         },
-        
-        dateOfBirth: {
+
+        time: {
+            notNull: true,
+            type: DataTypes.FLOAT,
+            validate: {
+                min: {
+                    args: 0
+                },
+                isFloat: {
+                    msg: "Time must be valid"
+                }
+            }
+        },
+
+        status: {
             notNull: false,
-            type: DataTypes.DATE,
+            type: DataTypes.ENUM,
         },
 
         password: {
@@ -55,5 +67,5 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    return User;
+    return Service;
 };
