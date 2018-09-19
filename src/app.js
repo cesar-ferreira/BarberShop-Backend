@@ -9,11 +9,9 @@ const app = express();
 const router = express.Router();
 
 // Carregar os Models
-const Service = require('./models/service');
 
 // Carregar as Rotas
 const indexRoute = require('./routes/index-route');
-const serviceRoute = require('./routes/service-route');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -27,7 +25,6 @@ app.post('/register', async (req, res) => {
 
 
 app.use('/', indexRoute);
-app.use('/service', serviceRoute);
 app.use('/swagger-ui.html', express.static(__dirname + '/public/api-docs'));
 
 require('./public/swagger')(app);
