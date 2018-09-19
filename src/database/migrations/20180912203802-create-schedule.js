@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = {
-    up: (queryInterface, DataTypes) => {
+    up: (queryInterface, Sequelize) => {
         queryInterface.createTable('Schedule', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
-                type: DataTypes.INTEGER,
+                type: Sequelize.INTEGER,
             },
             userId: {
                 type: Sequelize.INTEGER,
@@ -27,15 +27,15 @@ module.exports = {
             },
             timestamp: {
                 allowNull: false,
-                type: DataTypes.DATE
+                type: Sequelize.DATE
             },
             createdAt: {
                 allowNull: false,
-                type: DataTypes.DATE,
+                type: Sequelize.DATE,
             },
             updatedAt: {
                 allowNull: false,
-                type: DataTypes.DATE,
+                type: Sequelize.DATE,
             }
         });
     },
