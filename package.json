@@ -5,6 +5,7 @@
   "description": "barber's management",
   "main": "index.js",
   "scripts": {
+    "gulp": "node_modules/.bin/gulp",
     "start": "sequelize db:migrate && node ./node_modules/nodemon/bin/nodemon.js ./bin/server.js"
   },
   "repository": {
@@ -33,6 +34,10 @@
     "swagger-jsdoc": "^1.9.7"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "gulp": "3.9.1",
+    "gulp-clean": "0.3.2",
+    "gulp-typescript": "3.2.2",
+    "nodemon": "^1.18.4",
+    "typescript": "2.5.3"
   }
 }
