@@ -2,9 +2,9 @@
 const {GraphQLObjectType} = require('graphql');
 
 // App Imports.
-//const user = require('./user/mutations');
-//import * as thought from './thoughts/fields/mutations'
+
 const { userCreate, userRemove } = require('./user/mutations');
+const { serviceCreate, serviceRemove } = require('./service/mutations');
 
 // Mutation
 const mutation = new GraphQLObjectType({
@@ -13,7 +13,9 @@ const mutation = new GraphQLObjectType({
 
     fields: {
         userCreate,
-        userRemove
+        userRemove,
+        serviceCreate,
+        serviceRemove
     }
 
 });

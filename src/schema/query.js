@@ -2,9 +2,9 @@
 const {GraphQLObjectType} = require('graphql');
 
 // App Imports
-//const user = require('./user/*query');
-//import * as thought from './thoughts/fields/query'
+
 const { users, user } = require('./user/query');
+const { services, service } = require('./service/query');
 
 // Query
 const query = new GraphQLObjectType({
@@ -13,7 +13,9 @@ const query = new GraphQLObjectType({
 
     fields: () => ({
         users,
-        user
+        user,
+        services,
+        service
     })
 });
 
