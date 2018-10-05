@@ -6,6 +6,7 @@ const {GraphQLObjectType} = require('graphql');
 const { users, user } = require('./user/query');
 const { services, service } = require('./service/query');
 const { contacts, contact } = require('./contact/query');
+const { schedules, schedule } = require('./schedule/query');
 
 // Query
 const query = new GraphQLObjectType({
@@ -18,7 +19,9 @@ const query = new GraphQLObjectType({
         services,
         service,
         contacts,
-        contact
+        contact,
+        schedules,
+        schedule
     })
 });
 
