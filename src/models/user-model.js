@@ -1,5 +1,7 @@
 'use strict';
 
+//const { Contact } = require('./contact-model');
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         name: {
@@ -54,6 +56,10 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     });
+
+    User.associate = (models) => {
+        User.hasMany(models.Contact, { as: 'number' });
+    };
 
     return User;
 };

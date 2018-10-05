@@ -5,7 +5,10 @@ const express = require('express');
 const app = express();
 
 const setupGraphQL = require('./setup/graphql');
+const setupModules = require('./setup/loadModules');
+
 setupGraphQL(app);
+setupModules(app);
 
 // Carregar os Models
 

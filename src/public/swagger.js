@@ -27,7 +27,6 @@ module.exports = app => {
 
   // TODO create script to read recursive
   const routes = require('glob').sync(__dirname + '__dirname + /../services/**/*route.js', {});
-  console.log(routes);
 
   // options for the swagger docs
   const options = {
