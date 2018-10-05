@@ -48,5 +48,9 @@ module.exports = (sequelize, DataTypes) => {
 
     });
 
+    Service.associate = (models) => {
+        Service.hasMany(models.Schedule, { as: 'schedule' });
+    };
+
     return Service;
 };
