@@ -5,6 +5,7 @@ const {GraphQLObjectType} = require('graphql');
 
 const { userCreate, userRemove } = require('./user/mutations');
 const { serviceCreate, serviceRemove } = require('./service/mutations');
+const { contactCreate, contactRemove } = require('./contact/mutations');
 
 // Mutation
 const mutation = new GraphQLObjectType({
@@ -15,7 +16,9 @@ const mutation = new GraphQLObjectType({
         userCreate,
         userRemove,
         serviceCreate,
-        serviceRemove
+        serviceRemove,
+        contactCreate,
+        contactRemove
     }
 
 });
