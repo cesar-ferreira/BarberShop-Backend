@@ -23,9 +23,6 @@ module.exports = (sequelize, DataTypes) => {
             notNull: true,
             type: DataTypes.FLOAT,
             validate: {
-                min: {
-                    args: 0
-                },
                 isFloat: {
                     msg: "Price must be valid"
                 }
@@ -36,9 +33,6 @@ module.exports = (sequelize, DataTypes) => {
             notNull: true,
             type: DataTypes.FLOAT,
             validate: {
-                min: {
-                    args: 0
-                },
                 isFloat: {
                     msg: "Time must be valid"
                 }

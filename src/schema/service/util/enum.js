@@ -2,7 +2,7 @@
 
 const { GraphQLEnumType } = require('graphql');
 
-exports.serviceNameEnumType = new GraphQLEnumType({
+const serviceNameEnumType = new GraphQLEnumType({
     name: 'ServiceNameEnum',
     values: {
         SERVICE1: {
@@ -16,10 +16,22 @@ exports.serviceNameEnumType = new GraphQLEnumType({
             value: 'SERVICE3'
 
         },
+        SERVICE4: {
+            value: 'SERVICE4'
+
+        },
+        SERVICE5: {
+            value: 'SERVICE5'
+
+        },
+        SERVICE6: {
+            value: 'SERVICE6'
+
+        },
     },
 });
 
-exports.serviceStatusEnumType = new GraphQLEnumType({
+const serviceStatusEnumType = new GraphQLEnumType({
     name: 'ServiceStatusEnum',
     values: {
         ACTIVE: {
@@ -32,3 +44,4 @@ exports.serviceStatusEnumType = new GraphQLEnumType({
         }
     },
 });
+module.exports = { serviceNameEnumType, serviceStatusEnumType };
