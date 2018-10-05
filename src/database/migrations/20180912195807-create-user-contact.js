@@ -3,9 +3,9 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
         queryInterface.createTable('UserContact', {
-            id: {
+            number: {
                 allowNull: false,
-                autoIncrement: true,
+                autoIncrement: false,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },

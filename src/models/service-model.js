@@ -50,18 +50,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM,
             values: ['ACTIVE', 'INACTIVE'],
             defaultValue: 'ACTIVE'
-        },
-
-        password: {
-            notNull: true,
-            type: DataTypes.STRING,
-            validate: {
-                len: {
-                    args: 3,
-                    msg: "Password must be at least 3 characters in length"
-                }
-            }
         }
+
     });
 
     return Service;
