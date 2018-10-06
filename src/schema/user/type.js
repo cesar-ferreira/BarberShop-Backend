@@ -1,5 +1,11 @@
 // Imports
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLList } = require('graphql');
+const { resolver } = require('graphql-sequelize');
+
+const ContactType = require('../contact/type');
+
+const { User } = require('../../models');
+
 
 // User type
 const UserType = new GraphQLObjectType({
@@ -12,6 +18,10 @@ const UserType = new GraphQLObjectType({
         email: {type: GraphQLString},
         dateOfBirth: {type: GraphQLString},
         password: {type: GraphQLString},
+        contact: {
+            type: new GraphQLList(ContactType),
+            resolve: resolver(User.Contact)
+        },
         createdAt: {type: GraphQLString},
         updatedAt: {type: GraphQLString}
     })

@@ -1,6 +1,6 @@
 'use strict';
 
-//const { User } = require('./user-model');
+const { User } = require('./user-model');
 
 module.exports = (sequelize, DataTypes) => {
     const Contact = sequelize.define('Contact', {
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Contact.associate = (models) => {
-        Contact.belongsTo(models.User, {
+        Contact.User = Contact.belongsTo(models.User, {
             foreignKey: {
                 name: 'id',
                 as: 'userId'
