@@ -1,14 +1,17 @@
 // Imports
 const { GraphQLInt, GraphQLList } = require('graphql');
+const { resolver } = require('graphql-sequelize');
 
 // App Imports
 const UserType = require('./type');
-const { getAll, getById } = require('./resolvers');
+//const { getAll, getById } = require('./resolvers');
+
+const { User } = require('../../models');
 
 // Users All
 exports.users = {
     type: new GraphQLList(UserType),
-    resolve: getAll
+    resolve: resolver(User)
 };
 
 // User By ID
@@ -17,5 +20,5 @@ exports.user = {
     args: {
         id: {type: GraphQLInt}
     },
-    resolve: getById
+    resolve: resolver(User)
 };

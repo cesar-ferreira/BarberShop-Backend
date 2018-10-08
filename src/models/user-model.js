@@ -1,5 +1,8 @@
 'use strict';
 
+const { Contact } = require('./contact-model');
+const { Schedule } = require('./schedule-model');
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         name: {
@@ -56,8 +59,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.associate = (models) => {
-        User.hasMany(models.Contact, { as: 'number' });
-        User.hasMany(models.Schedule, { as: 'schedule' });
+        User.Contact = User.hasMany(models.Contact);
+        User.Schedule = User.hasMany(models.Schedule);
     };
 
     return User;

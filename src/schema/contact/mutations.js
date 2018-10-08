@@ -1,5 +1,5 @@
 // Imports
-const { GraphQLInt } = require('graphql');
+const { GraphQLInt, GraphQLString } = require('graphql');
 
 // App Imports
 const ContactType = require('./type');
@@ -12,6 +12,11 @@ exports.contactCreate = {
     args: {
         number: {
             number: 'number',
+            type: GraphQLString
+        },
+
+        userId: {
+            userId: 'userId',
             type: GraphQLInt
         }
     },
@@ -22,8 +27,8 @@ exports.contactCreate = {
 exports.contactRemove = {
     type: ContactType,
     args: {
-        number: {
-            number: 'number',
+        id: {
+            name: 'id',
             type: GraphQLInt
         }
     },

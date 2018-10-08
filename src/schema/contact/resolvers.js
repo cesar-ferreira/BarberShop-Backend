@@ -12,9 +12,11 @@ exports.getAll = async function () {
 };
 
 // Create contact
-exports.create = async function (parentValue, {number}) {
+exports.create = async function (parentValue, {number, userId}) {
+    console.log(number, userId);
     return await Contact.create({
-        number
+        number,
+        userId
     })
 };
 

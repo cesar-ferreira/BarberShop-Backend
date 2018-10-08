@@ -1,9 +1,11 @@
 // Imports
 const { GraphQLString, GraphQLInt } = require('graphql');
+const { resolver } = require('graphql-sequelize');
 
 // App Imports
 const UserType = require('./type');
-const {create, remove} = require('./resolvers');
+const { User } = require('../../models');
+//const {create, remove} = require('./resolvers');
 
 // User create
 exports.userCreate = {
@@ -34,7 +36,9 @@ exports.userCreate = {
             type: GraphQLString
         }
     },
-    resolve: create
+    resolve (parentValue, args) {
+        return User.create(args)
+    }
 };
 
 // User remove
@@ -46,5 +50,9 @@ exports.userRemove = {
             type: GraphQLInt
         }
     },
-    resolve: remove
+    resolve (parentValue, args) {
+        return User.destroy({where: {id: args.id}})
+    }
 };
+
+

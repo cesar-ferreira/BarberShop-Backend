@@ -10,17 +10,17 @@ module.exports = (sequelize, DataTypes) => {
 
     Schedule.associate = (models) => {
 
-        Schedule.belongsTo(models.User, {
+        Schedule.User = Schedule.belongsTo(models.User, {
             foreignKey: {
-                name: 'id',
+                name: 'userId',
                 as: 'userId'
             },
             onDelete: 'set null'
         });
 
-        Schedule.belongsTo(models.Service, {
+        Schedule.Service = Schedule.belongsTo(models.Service, {
             foreignKey: {
-                name: 'id',
+                name: 'serviceId',
                 as: 'serviceId'
             },
             onDelete: 'set null'
