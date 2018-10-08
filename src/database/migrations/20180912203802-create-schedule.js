@@ -2,7 +2,7 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        queryInterface.createTable('Schedule', {
+        queryInterface.createTable('Schedules', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
@@ -11,8 +11,8 @@ module.exports = {
             },
             userId: {
                 type: Sequelize.INTEGER,
-                primaryKey: true,
                 allowNull: false,
+                autoIncrement: false,
                 references: {
                     model: 'Users',
                     key: 'id'
@@ -21,8 +21,8 @@ module.exports = {
             },
             serviceId: {
                 type: Sequelize.INTEGER,
-                primaryKey: true,
                 allowNull: false,
+                autoIncrement: false,
                 references: {
                     model: 'Services',
                     key: 'id'
@@ -45,6 +45,6 @@ module.exports = {
     },
 
     down: (queryInterface) => {
-        queryInterface.dropTable('Schedule');
+        queryInterface.dropTable('Schedules');
     }
 };

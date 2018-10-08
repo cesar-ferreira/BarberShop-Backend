@@ -3,30 +3,24 @@
 const { User } = require('./user-model');
 
 module.exports = (sequelize, DataTypes) => {
-    const UserContact = sequelize.define('UserContact', {
+    const Contact = sequelize.define('Contact', {
         number: {
             notNull: true,
-            primaryKey: true,
-            type: DataTypes.INTEGER,
-            validate: {
-                len: {
-                    args: 3,
-                    msg: "Name must be at least 3 characters in length"
-                }
-            }
+            type: DataTypes.STRING,
+
         },
 
     });
 
-    UserContact.associate = (models) => {
-        UserContact.User = UserContact.belongsTo(models.User, {
+    Contact.associate = (models) => {
+        Contact.User = Contact.belongsTo(models.User, {
             foreignKey: {
-                name: 'id',
+                name: 'userId',
                 as: 'userId'
             },
             onDelete: 'set null'
         });
     };
 
-    return UserContact;
+    return Contact;
 };

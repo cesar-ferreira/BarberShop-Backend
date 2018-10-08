@@ -1,24 +1,26 @@
 // App Imports
-const { UserContact } = require('../../models');
+const { Contact } = require('../../models');
 
 // Get contact by ID
 exports.getById = async function (parentValue, {id}) {
-    return await UserContact.findOne({where: {id}})
+    return await Contact.findOne({where: {id}})
 };
 
 // Get all contact
 exports.getAll = async function () {
-    return await UserContact.findAll()
+    return await Contact.findAll()
 };
 
 // Create contact
-exports.create = async function (parentValue, {number}) {
-    return await UserContact.create({
-        number
+exports.create = async function (parentValue, {number, userId}) {
+    console.log(number, userId);
+    return await Contact.create({
+        number,
+        userId
     })
 };
 
 // Delete contact
 exports.remove = async function (parentValue, {id}) {
-    return await UserContact.destroy({where: {id}})
+    return await Contact.destroy({where: {id}})
 };

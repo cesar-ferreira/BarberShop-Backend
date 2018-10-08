@@ -29,6 +29,32 @@ mutation{
         dateOfBirth
     }
 }
+
+
+
+query{
+  users{
+    name
+    id
+  }
+}
+
+mutation{
+  contactCreate(number:"8888888",userId:1){
+    number
+    userId
+  }
+}
+
+
+query{
+  user(id:1){
+    name
+    contact{
+      number
+    }
+  }
+}
 */
 require('./public/swagger')(app);
 module.exports = app;

@@ -1,6 +1,6 @@
 'use strict';
 
-const { UserContact } = require('./contact-model');
+const { Contact } = require('./contact-model');
 const { Schedule } = require('./schedule-model');
 
 module.exports = (sequelize, DataTypes) => {
@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     User.associate = (models) => {
-        User.UserContact = User.hasMany(models.UserContact);
+        User.Contact = User.hasMany(models.Contact);
         User.Schedule = User.hasMany(models.Schedule);
     };
 

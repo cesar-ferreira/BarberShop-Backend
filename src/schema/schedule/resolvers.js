@@ -12,9 +12,8 @@ exports.getAll = async function () {
 };
 
 // Create schedule
-exports.create = async function (parentValue, {id, timestamp}) {
+exports.create = async function (parentValue, {timestamp}) {
     return await Schedule.create({
-        id,
         timestamp
     })
 };
