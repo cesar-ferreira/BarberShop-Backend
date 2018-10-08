@@ -7,6 +7,8 @@ const ScheduleType = new GraphQLObjectType({
 
     fields: () => ({
         id: {type: GraphQLInt},
+        userId: {type: GraphQLInt},
+        serviceId: {type: GraphQLInt},
         timestamp: {type: GraphQLString},
         createdAt: {type: GraphQLString},
         updatedAt: {type: GraphQLString}

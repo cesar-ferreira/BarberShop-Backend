@@ -1,10 +1,13 @@
 // Imports
 const { GraphQLString, GraphQLInt, GraphQLFloat } = require('graphql');
 const { serviceNameEnumType, serviceStatusEnumType } = require('./util/enum');
+const { resolver } = require('graphql-sequelize');
+
+const { Service } = require('../../models');
 
 // App Imports
 const ServiceType = require('./type');
-const {create, remove} = require('./resolvers');
+//const {create, remove} = require('./resolvers');
 
 
 // Service create
@@ -36,7 +39,9 @@ exports.serviceCreate = {
             type: serviceStatusEnumType
         }
     },
-    resolve: create
+    resolve (parentValue, args) {
+        return Service.create(args)
+    }
 };
 
 // Service remove
@@ -48,5 +53,7 @@ exports.serviceRemove = {
             type: GraphQLInt
         }
     },
-    resolve: remove
+    resolve (parentValue, args) {
+        return Service.destroy({where: {id: args.id}})
+    }
 };

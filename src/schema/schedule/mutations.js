@@ -1,9 +1,9 @@
 // Imports
 const { GraphQLString, GraphQLInt } = require('graphql');
-
+const { Schedule } = require('../../models');
 // App Imports
 const ScheduleType = require('./type');
-const {create, remove} = require('./resolvers');
+//const {create, remove} = require('./resolvers');
 
 // Schedule create
 exports.scheduleCreate = {
@@ -12,9 +12,21 @@ exports.scheduleCreate = {
         timestamp: {
             timestamp: 'timestamp',
             type: GraphQLString
+        },
+
+        userId: {
+            userId: 'userId',
+            type: GraphQLInt
+        },
+
+        serviceId: {
+            serviceId: 'serviceId',
+            type: GraphQLInt
         }
     },
-    resolve: create
+    resolve (parentValue, args) {
+        return Schedule.create(args)
+    }
 };
 
 // Schedule remove
@@ -26,5 +38,7 @@ exports.scheduleRemove = {
             type: GraphQLInt
         }
     },
-    resolve: remove
+    resolve (parentValue, args) {
+        return Schedule.destroy({where: {id: args.id}})
+    }
 };

@@ -55,6 +55,22 @@ query{
     }
   }
 }
+
+
+mutation{
+  serviceCreate(name:SERVICE2,
+  description:"afasfa", price:45
+  ,time:30, status:ACTIVE){
+    name
+  }
+}
+
+mutation{
+  scheduleCreate(timestamp:"2018-09-25 21:42:10.946 +00:00",
+  userId:1, serviceId:1){
+    timestamp
+  }
+}
 */
 require('./public/swagger')(app);
 module.exports = app;

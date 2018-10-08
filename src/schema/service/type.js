@@ -1,6 +1,12 @@
 // Imports
-const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLFloat } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLFloat, GraphQLList } = require('graphql');
 const { serviceNameEnumType, serviceStatusEnumType } = require('./util/enum');
+
+const ScheduleType = require('../schedule/type');
+
+const { resolver } = require('graphql-sequelize');
+
+const { Service } = require('../../models');
 
 // Service type
 const ServiceType = new GraphQLObjectType({
@@ -13,6 +19,10 @@ const ServiceType = new GraphQLObjectType({
         price: {type: GraphQLFloat},
         time: {type: GraphQLFloat},
         status: {type: serviceStatusEnumType},
+        schedule: {
+            type: new GraphQLList(ScheduleType),
+            resolve: resolver(Service.Schedule)
+        },
         createdAt: {type: GraphQLString},
         updatedAt: {type: GraphQLString}
     })

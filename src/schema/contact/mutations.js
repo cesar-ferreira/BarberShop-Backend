@@ -3,7 +3,9 @@ const { GraphQLInt, GraphQLString } = require('graphql');
 
 // App Imports
 const ContactType = require('./type');
-const {create, remove} = require('./resolvers');
+const { Contact } = require('../../models');
+const { resolver } = require('graphql-sequelize');
+//const {create, remove} = require('./resolvers');
 
 
 // Contact create
@@ -20,7 +22,9 @@ exports.contactCreate = {
             type: GraphQLInt
         }
     },
-    resolve: create
+    resolve (parentValue, args) {
+        return Contact.create(args)
+    }
 };
 
 // Contact remove
@@ -32,5 +36,7 @@ exports.contactRemove = {
             type: GraphQLInt
         }
     },
-    resolve: remove
+    resolve (parentValue, args) {
+        return Contact.destroy({where: {id: args.id}})
+    }
 };

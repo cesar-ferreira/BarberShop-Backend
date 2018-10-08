@@ -1,14 +1,17 @@
 // Imports
 const { GraphQLInt, GraphQLList } = require('graphql');
 
+const { Schedule } = require('../../models');
+const { resolver } = require('graphql-sequelize');
+
 // App Imports
 const ScheduleType = require('./type');
-const { getAll, getById } = require('./resolvers');
+//const { getAll, getById } = require('./resolvers');
 
 // Schedules All
 exports.schedules = {
     type: new GraphQLList(ScheduleType),
-    resolve: getAll
+    resolve: resolver(Schedule)
 };
 
 // Schedule By ID
@@ -17,5 +20,5 @@ exports.schedule = {
     args: {
         id: {type: GraphQLInt}
     },
-    resolve: getById
+    resolve: resolver(Schedule)
 };

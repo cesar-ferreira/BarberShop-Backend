@@ -3,12 +3,16 @@ const { GraphQLInt, GraphQLList } = require('graphql');
 
 // App Imports
 const ServiceType = require('./type');
-const { getAll, getById } = require('./resolvers');
+
+const { resolver } = require('graphql-sequelize');
+
+const { Service } = require('../../models');
+//const { getAll, getById } = require('./resolvers');
 
 // Service All
 exports.services = {
     type: new GraphQLList(ServiceType),
-    resolve: getAll
+    resolve: resolver(Service)
 };
 
 // Service By ID
@@ -17,5 +21,5 @@ exports.service = {
     args: {
         id: {type: GraphQLInt}
     },
-    resolve: getById
+    resolve: resolver(Service)
 };
