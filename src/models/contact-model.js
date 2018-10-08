@@ -3,7 +3,7 @@
 const { User } = require('./user-model');
 
 module.exports = (sequelize, DataTypes) => {
-    const Contact = sequelize.define('Contact', {
+    const UserContact = sequelize.define('UserContact', {
         number: {
             notNull: true,
             primaryKey: true,
@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
 
     });
 
-    Contact.associate = (models) => {
-        Contact.User = Contact.belongsTo(models.User, {
+    UserContact.associate = (models) => {
+        UserContact.User = UserContact.belongsTo(models.User, {
             foreignKey: {
                 name: 'id',
                 as: 'userId'
@@ -28,5 +28,5 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-    return Contact;
+    return UserContact;
 };

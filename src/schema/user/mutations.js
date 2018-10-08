@@ -37,13 +37,7 @@ exports.userCreate = {
         }
     },
     resolve (parentValue, args) {
-        return User.create({
-            name: args.name,
-            username: args.username,
-            email: args.email,
-            dateOfBirth: args.dateOfBirth,
-            password: args.password,
-        });
+        return User.create(args)
     }
 };
 
