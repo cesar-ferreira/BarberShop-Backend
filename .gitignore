@@ -58,6 +58,6 @@ typings/
 # dotenv environment variables file
 .env
 
-.ideia/
+.idea/
 database-test.db
 database.db
