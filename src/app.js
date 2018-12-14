@@ -3,9 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 
-
 const app = express();
-
 
 const setupGraphQL = require('./setup/graphql');
 const setupModules = require('./setup/loadModules');
@@ -13,7 +11,8 @@ const setupModules = require('./setup/loadModules');
 setupGraphQL(app);
 setupModules(app);
 
-app.use(cors())
+
+//app.use(cors())
 
 // Carregar os Models
 
