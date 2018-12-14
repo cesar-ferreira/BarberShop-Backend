@@ -5,6 +5,7 @@ const http = require('http');
 const debug = require('debug')('nodestr:server');
 
 const port = normalizePort(process.env.PORT || '3030');
+
 app.set('port', port);
 
 const server = http.createServer(app);
@@ -24,3 +25,4 @@ function normalizePort(val) {
     }
     return false;
 }
+
