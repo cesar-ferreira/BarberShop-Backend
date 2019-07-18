@@ -2,6 +2,8 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
+        return Promise.resolve()
+            .then(() =>
         queryInterface.createTable('Users', {
             id: {
                 allowNull: false,
@@ -17,6 +19,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING,
                 unique: true,
+
             },
             email: {
                 allowNull: false,
@@ -39,7 +42,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-        });
+        }));
     },
 
     down: (queryInterface) => {
