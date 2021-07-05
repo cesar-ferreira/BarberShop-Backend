@@ -24,8 +24,8 @@ setupModules(app);
 
 /*
 mutation{
-    userCreate(name:"Eri", username:"eri",
-        email:"eri@eri.com", dateOfBirth:"1993-09-25 21:42:10.946 +00:00",
+    userCreate(name:"Cesar", username:"cesar",
+        email:"cesar@cesar.com", dateOfBirth:"1993-09-25 21:42:10.946 +00:00",
         password:"123456789"){
         name
         username

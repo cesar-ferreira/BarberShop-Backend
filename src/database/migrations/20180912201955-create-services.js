@@ -2,6 +2,8 @@
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
+        return Promise.resolve()
+            .then(() =>
         queryInterface.createTable('Services', {
             id: {
                 allowNull: false,
@@ -39,7 +41,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE,
             }
-        });
+        }));
     },
 
     down: (queryInterface) => {
